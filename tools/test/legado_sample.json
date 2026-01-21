@@ -1,0 +1,141 @@
+[
+  {
+    "bookSourceComment": "测试书源1 - XPath规则",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试笔趣阁",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.example1.com",
+    "enabled": true,
+    "searchUrl": "https://www.example1.com/search?q={{key}}",
+    "ruleSearch": {
+      "bookList": "//div[@class='result-list']/div",
+      "name": "//h3[@class='title']/a/text()",
+      "author": "//span[@class='author']/text()",
+      "bookUrl": "//h3[@class='title']/a/@href"
+    },
+    "ruleBookInfo": {
+      "name": "//h1[@class='book-title']/text()",
+      "author": "//span[@class='author']/text()",
+      "intro": "//div[@class='intro']/text()",
+      "coverUrl": "//img[@class='cover']/@src",
+      "tocUrl": "//a[@class='read-btn']/@href"
+    },
+    "ruleToc": {
+      "chapterList": "//ul[@class='chapter-list']/li",
+      "chapterName": "//a/text()",
+      "chapterUrl": "//a/@href"
+    },
+    "ruleContent": {
+      "content": "//div[@id='content']"
+    }
+  },
+  {
+    "bookSourceComment": "测试书源2 - CSS规则",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试CSS书源",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.example2.com",
+    "enabled": true,
+    "searchUrl": "https://www.example2.com/s.php,{\"method\":\"POST\",\"body\":\"searchkey={{key}}\",\"charset\":\"gbk\"}",
+    "ruleSearch": {
+      "bookList": "@css:.search-result li",
+      "name": "@css:.book-name@text",
+      "author": "@css:.author@text",
+      "bookUrl": "@css:.book-name@href"
+    },
+    "ruleToc": {
+      "chapterList": "@css:#chapter-list li",
+      "chapterName": "@css:a@text",
+      "chapterUrl": "@css:a@href"
+    },
+    "ruleContent": {
+      "content": "@css:#content@text",
+      "replaceRegex": "广告文字|请收藏本站"
+    }
+  },
+  {
+    "bookSourceComment": "测试书源3 - JSONPath规则",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试API书源",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://api.example3.com",
+    "enabled": true,
+    "searchUrl": "https://api.example3.com/search?keyword={{key}}",
+    "ruleSearch": {
+      "bookList": "$.data.list",
+      "name": "$.name",
+      "author": "$.author",
+      "bookUrl": "$.url"
+    },
+    "ruleToc": {
+      "chapterList": "$.data.chapters",
+      "chapterName": "$.title",
+      "chapterUrl": "$.link"
+    },
+    "ruleContent": {
+      "content": "$.data.content"
+    }
+  },
+  {
+    "bookSourceComment": "测试书源4 - 包含JS规则（应被跳过）",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试JS书源",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.example4.com",
+    "enabled": true,
+    "searchUrl": "https://www.example4.com/search?q={{key}}",
+    "ruleSearch": {
+      "bookList": "//div[@class='list']",
+      "name": "//h3/text()@js:result.trim()",
+      "author": "//span/text()",
+      "bookUrl": "//a/@href"
+    },
+    "ruleToc": {
+      "chapterList": "//ul/li",
+      "chapterName": "//a/text()",
+      "chapterUrl": "//a/@href"
+    },
+    "ruleContent": {
+      "content": "<js>document.querySelector('#content').innerText</js>"
+    }
+  },
+  {
+    "bookSourceComment": "测试书源5 - 音频类型（应被跳过）",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试音频书源",
+    "bookSourceType": 1,
+    "bookSourceUrl": "https://www.example5.com",
+    "enabled": true,
+    "searchUrl": "https://www.example5.com/search?q={{key}}",
+    "ruleSearch": {
+      "bookList": "//div[@class='list']",
+      "name": "//h3/text()",
+      "bookUrl": "//a/@href"
+    }
+  },
+  {
+    "bookSourceComment": "测试书源6 - JSOUP Default规则",
+    "bookSourceGroup": "测试",
+    "bookSourceName": "测试JSOUP书源",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://www.example6.com",
+    "enabled": true,
+    "searchUrl": "https://www.example6.com/search?key={{key}}",
+    "ruleSearch": {
+      "bookList": "class.search-list.0@tag.li",
+      "name": "tag.h3.0@tag.a@text",
+      "author": "class.author@text",
+      "bookUrl": "tag.h3.0@tag.a@href"
+    },
+    "ruleToc": {
+      "chapterList": "id.chapter-list@tag.li",
+      "chapterName": "tag.a@text",
+      "chapterUrl": "tag.a@href",
+      "nextTocUrl": "class.next-page@tag.a@href"
+    },
+    "ruleContent": {
+      "content": "id.content@text",
+      "nextContentUrl": "class.next@tag.a@href"
+    }
+  }
+]

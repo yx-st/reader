@@ -1,0 +1,42 @@
+# 编译输出
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.exp
+*.idb
+*.suo
+*.user
+*.ncb
+*.aps
+
+# Visual Studio 目录
+Debug/
+Release/
+x64/
+x86/
+.vs/
+ipch/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+*.bak
+~*
+
+# macOS
+.DS_Store
+
+# 测试输出
+test_js/*.exe
+test_js/test_quickjs
+test_js/test_legado_rules

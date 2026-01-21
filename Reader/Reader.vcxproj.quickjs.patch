@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Reader.vcxproj QuickJS Integration Patch
+  
+  Add the following items to your Visual Studio project:
+  
+  1. In <ItemGroup> for ClCompile, add:
+-->
+
+<!-- Source files to add to ClCompile ItemGroup -->
+<ClCompile Include="..\opensrc\quickjs\quickjs.c" />
+<ClCompile Include="..\opensrc\quickjs\cutils.c" />
+<ClCompile Include="..\opensrc\quickjs\libregexp.c" />
+<ClCompile Include="..\opensrc\quickjs\libunicode.c" />
+<ClCompile Include="..\opensrc\quickjs\dtoa.c" />
+<ClCompile Include="JsEngine.cpp" />
+<ClCompile Include="JsRuleProcessor.cpp" />
+
+<!-- Header files to add to ClInclude ItemGroup -->
+<ClInclude Include="..\opensrc\quickjs\quickjs.h" />
+<ClInclude Include="..\opensrc\quickjs\cutils.h" />
+<ClInclude Include="..\opensrc\quickjs\libregexp.h" />
+<ClInclude Include="..\opensrc\quickjs\libunicode.h" />
+<ClInclude Include="..\opensrc\quickjs\list.h" />
+<ClInclude Include="JsEngine.h" />
+<ClInclude Include="JsRuleProcessor.h" />
+
+<!--
+  2. Add to AdditionalIncludeDirectories:
+     ..\opensrc\quickjs
+  
+  3. Add preprocessor definition:
+     CONFIG_VERSION="2025-09-13"
+  
+  4. For C files (quickjs.c, etc.), you may need to set:
+     - Compile As: Compile as C Code (/TC)
+     - Or rename to .cpp and adjust includes
+-->
